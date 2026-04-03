@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Models\Category;
 use App\Models\Product;
 use App\Services\WhatsAppUrlGenerator;
+use Illuminate\Support\Facades\Cache;
 use Livewire\Component;
 
 class ShowCatalog extends Component
@@ -26,11 +27,15 @@ class ShowCatalog extends Component
 
     public function render()
     {
-        $products = Product::promoted()
-            ->with('category')
-            ->when($this->selectedCategory, fn ($query) => $query->where('category_id', $this->selectedCategory))
-            ->latest()
-            ->get();
+        $categoryKey = $this->selectedCategory ?? 'all';
+
+        $products = Cache::remember("promoted_products_{$categoryKey}", 300, function () {
+            return Product::promoted()
+                ->with('category')
+                ->when($this->selectedCategory, fn ($query) => $query->where('category_id', $this->selectedCategory))
+                ->latest()
+                ->get();
+        });
 
         // Pre-compute WhatsApp URLs to avoid calling methods with parameters in Blade
         $products->each(function (Product $product) {
@@ -38,7 +43,7 @@ class ShowCatalog extends Component
         });
 
         return view('livewire.show-catalog', [
-            'categories' => Category::active()->get(),
+            'categories' => Cache::remember('active_categories', 3600, fn () => Category::active()->get()),
             'products' => $products,
         ]);
     }
