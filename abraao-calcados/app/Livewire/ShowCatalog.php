@@ -29,13 +29,11 @@ class ShowCatalog extends Component
     {
         $categoryKey = $this->selectedCategory ?? 'all';
 
-        $products = Cache::remember("promoted_products_{$categoryKey}", 300, function () {
-            return Product::promoted()
-                ->with('category')
-                ->when($this->selectedCategory, fn ($query) => $query->where('category_id', $this->selectedCategory))
-                ->latest()
-                ->get();
-        });
+        $products = Product::promoted()
+            ->with('category')
+            ->when($this->selectedCategory, fn ($query) => $query->where('category_id', $this->selectedCategory))
+            ->latest()
+            ->get();
 
         // Pre-compute WhatsApp URLs to avoid calling methods with parameters in Blade
         $products->each(function (Product $product) {

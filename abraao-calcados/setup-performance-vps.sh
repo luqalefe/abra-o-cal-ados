@@ -189,7 +189,7 @@ info "Instalando dependências PHP..."
 composer install --no-dev --optimize-autoloader -q
 
 info "Compilando assets frontend (npm ci + vite build)..."
-npm ci --prefer-offline --silent
+npm install --silent
 npm run build
 
 info "Rodando migrations (índices de performance)..."
