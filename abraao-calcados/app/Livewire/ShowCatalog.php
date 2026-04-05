@@ -7,17 +7,13 @@ use App\Models\Product;
 use App\Services\WhatsAppUrlGenerator;
 use Illuminate\Support\Facades\Cache;
 use Livewire\Component;
-use Livewire\WithPagination;
 
 class ShowCatalog extends Component
 {
-    use WithPagination;
-
     public ?int $selectedCategory = null;
 
     public function filterByCategory(?int $categoryId): void
     {
-        $this->resetPage();
         $this->selectedCategory = $categoryId;
     }
 
@@ -37,7 +33,7 @@ class ShowCatalog extends Component
             ->with('category')
             ->when($this->selectedCategory, fn ($query) => $query->where('category_id', $this->selectedCategory))
             ->latest()
-            ->paginate(12);
+            ->get();
 
         // Pre-compute WhatsApp URLs to avoid calling methods with parameters in Blade
         $products->each(function (Product $product) {

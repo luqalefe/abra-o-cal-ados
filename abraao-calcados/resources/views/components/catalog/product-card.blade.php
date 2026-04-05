@@ -1,5 +1,5 @@
 {{-- Product Card Component --}}
-@props(['product', 'index' => 99, 'isFirst' => false])
+@props(['product', 'isFirst' => false])
 
 <div class="group bg-white rounded-xl overflow-hidden flex flex-col border border-gray-100 hover:shadow-md hover:border-gray-200 transition-all duration-200 animate-fade-in">
 
@@ -10,7 +10,7 @@
                 src="{{ Storage::url($product->images[0]) }}"
                 alt="{{ $product->name }}"
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                @if($index === 0) fetchpriority="high" @elseif($index >= 4) loading="lazy" @endif
+                @if($isFirst) fetchpriority="high" @else loading="lazy" @endif
                 width="400"
                 height="400"
             >

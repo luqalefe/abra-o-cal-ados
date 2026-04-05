@@ -17,7 +17,7 @@
     $phoneClean = preg_replace('/\D/', '', $storePhone);
 
     $defaultTitle = $storeName . ' | Calçados em Rio Branco - AC | Tênis, Sandálias, Sapatos';
-    $defaultDesc = 'Tênis, sandálias, sapatos sociais, chinelos e botas com os melhores preços de Rio Branco, AC. Compre pelo WhatsApp!';
+    $defaultDesc = 'Loja de calçados em Rio Branco, Acre. Encontre tênis, sandálias, sapatos sociais, chinelos e botas com os melhores preços. Compre pelo WhatsApp! ' . $storeAddr;
     $defaultKeywords = 'calçados rio branco, loja de sapatos rio branco, tênis rio branco acre, sandálias rio branco, sapatos sociais acre, chinelos rio branco, botas rio branco, abraão calçados, comprar calçados acre, loja de tênis rio branco, promoção calçados rio branco';
     $defaultOgTitle = $storeName . ' - Calçados em Rio Branco, AC';
     $defaultOgDesc = 'As melhores promoções em calçados de Rio Branco! Tênis, sandálias, sapatos sociais, chinelos e botas. Compre pelo WhatsApp.';
@@ -98,10 +98,16 @@
 
     @stack('meta')
 
+    {{-- Fonts --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <style>
-        body { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+        body { font-family: 'Inter', system-ui, sans-serif; }
         .scrollbar-hide::-webkit-scrollbar { display: none; }
         .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
         .glass {
