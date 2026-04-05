@@ -1,7 +1,7 @@
 {{-- Category Filter Component --}}
 @props(['categories', 'selectedCategory'])
 
-<div class="sticky top-0 z-20 bg-white/95 backdrop-blur-md border-b border-stone-100 shadow-sm">
+<div class="sticky top-0 z-20 bg-white border-b border-stone-100 shadow-sm">
     <div class="max-w-7xl mx-auto px-2 sm:px-4">
         <div class="flex items-stretch overflow-x-auto scrollbar-hide">
 

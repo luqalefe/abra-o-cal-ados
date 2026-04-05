@@ -1,7 +1,7 @@
 {{-- Product Card Component --}}
 @props(['product', 'isFirst' => false])
 
-<div class="group bg-white rounded-xl overflow-hidden flex flex-col border border-gray-100 hover:shadow-md hover:border-gray-200 transition-all duration-200 animate-fade-in">
+<div class="group bg-white rounded-xl overflow-hidden flex flex-col border border-gray-100 hover:shadow-md hover:border-gray-200 transition-all duration-200">
 
     {{-- Image --}}
     <a href="{{ route('produto.show', $product) }}" class="relative block aspect-square bg-gray-50 overflow-hidden">
@@ -9,7 +9,7 @@
             <img
                 src="{{ Storage::url($product->images[0]) }}"
                 alt="{{ $product->name }}"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                class="w-full h-full object-cover"
                 @if($isFirst) fetchpriority="high" @else loading="lazy" @endif
                 width="400"
                 height="400"
