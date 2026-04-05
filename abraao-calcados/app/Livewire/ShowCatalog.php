@@ -41,7 +41,7 @@ class ShowCatalog extends Component
         });
 
         return view('livewire.show-catalog', [
-            'categories' => Cache::remember('active_categories', 3600, fn () => Category::active()->get()),
+            'categories' => Category::active()->get(),
             'products' => $products,
         ]);
     }
