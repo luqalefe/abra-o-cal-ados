@@ -17,7 +17,7 @@
     $phoneClean = preg_replace('/\D/', '', $storePhone);
 
     $defaultTitle = $storeName . ' | Calçados em Rio Branco - AC | Tênis, Sandálias, Sapatos';
-    $defaultDesc = 'Loja de calçados em Rio Branco, Acre. Encontre tênis, sandálias, sapatos sociais, chinelos e botas com os melhores preços. Compre pelo WhatsApp! ' . $storeAddr;
+    $defaultDesc = 'Tênis, sandálias, sapatos sociais, chinelos e botas com os melhores preços de Rio Branco, AC. Compre pelo WhatsApp!';
     $defaultKeywords = 'calçados rio branco, loja de sapatos rio branco, tênis rio branco acre, sandálias rio branco, sapatos sociais acre, chinelos rio branco, botas rio branco, abraão calçados, comprar calçados acre, loja de tênis rio branco, promoção calçados rio branco';
     $defaultOgTitle = $storeName . ' - Calçados em Rio Branco, AC';
     $defaultOgDesc = 'As melhores promoções em calçados de Rio Branco! Tênis, sandálias, sapatos sociais, chinelos e botas. Compre pelo WhatsApp.';
