@@ -10,7 +10,7 @@
                 src="{{ Storage::url($product->images[0]) }}"
                 alt="{{ $product->name }}"
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                @if(!$isFirst) loading="lazy" @endif
+                @if($isFirst) fetchpriority="high" @else loading="lazy" @endif
                 width="400"
                 height="400"
             >
@@ -32,7 +32,7 @@
 
         {{-- Categoria + Nome --}}
         <div>
-            <span class="text-[10px] font-semibold text-brand-600 uppercase tracking-wider">
+            <span class="text-[10px] font-semibold text-brand-700 uppercase tracking-wider">
                 {{ $product->category->name }}
             </span>
             <a href="{{ route('produto.show', $product) }}" class="block mt-0.5">

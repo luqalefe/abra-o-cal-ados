@@ -31,6 +31,8 @@
                                 :src="images[activeImage]"
                                 alt="{{ $product->name }}"
                                 class="w-full h-full object-cover"
+                                width="600"
+                                height="600"
                             >
                         </template>
                         <template x-if="images.length === 0">
@@ -69,7 +71,7 @@
 
                 {{-- Categoria + Nome --}}
                 <div>
-                    <span class="text-xs font-semibold text-brand-600 uppercase tracking-wider">
+                    <span class="text-xs font-semibold text-brand-700 uppercase tracking-wider">
                         {{ $product->category->name }}
                     </span>
                     <h1 class="mt-1 text-2xl md:text-3xl font-black text-gray-900 leading-tight">

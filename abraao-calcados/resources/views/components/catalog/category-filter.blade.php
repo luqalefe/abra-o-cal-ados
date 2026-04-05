@@ -11,7 +11,7 @@
                 class="flex-shrink-0 px-4 sm:px-5 py-3.5 text-sm font-semibold whitespace-nowrap border-b-2 transition-colors duration-150
                     {{ $selectedCategory === null
                         ? 'border-brand-700 text-brand-700'
-                        : 'border-transparent text-stone-400 hover:text-stone-700 hover:border-stone-200' }}"
+                        : 'border-transparent text-stone-500 hover:text-stone-800 hover:border-stone-300' }}"
             >
                 Todos
             </button>
@@ -22,7 +22,7 @@
                     class="flex-shrink-0 px-4 sm:px-5 py-3.5 text-sm font-semibold whitespace-nowrap border-b-2 transition-colors duration-150
                         {{ $selectedCategory == $category->id
                             ? 'border-brand-700 text-brand-700'
-                            : 'border-transparent text-stone-400 hover:text-stone-700 hover:border-stone-200' }}"
+                            : 'border-transparent text-stone-500 hover:text-stone-800 hover:border-stone-300' }}"
                 >
                     {{ $category->name }}
                 </button>

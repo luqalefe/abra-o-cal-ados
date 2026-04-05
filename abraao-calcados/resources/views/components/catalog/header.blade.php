@@ -58,7 +58,7 @@
                 <p class="text-sm text-stone-500 italic leading-none">
                     As melhores marcas com o menor preço
                 </p>
-                <span class="inline-flex items-center gap-1 text-[10px] font-bold text-brand-600 uppercase tracking-widest">
+                <span class="inline-flex items-center gap-1 text-[10px] font-bold text-brand-700 uppercase tracking-widest">
                     <svg class="w-2.5 h-2.5" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                     </svg>
