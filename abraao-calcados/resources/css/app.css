@@ -6,6 +6,31 @@
 @source '../**/*.js';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sans: 'Inter', system-ui, sans-serif;
+
+    --color-brand-50:  #FFFBEB;
+    --color-brand-100: #FEF3C7;
+    --color-brand-200: #FDE68A;
+    --color-brand-300: #FCD34D;
+    --color-brand-400: #FBBF24;
+    --color-brand-500: #F59E0B;
+    --color-brand-600: #D97706;
+    --color-brand-700: #B45309;
+    --color-brand-800: #92400E;
+    --color-brand-900: #78350F;
+    --color-brand-950: #451A03;
+
+    --animate-fade-in: fadeIn 0.4s ease-out both;
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(6px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
 }
+
+/* Scrollbar hide */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Lazy-load fade */
+img { transition: opacity 0.2s ease; }

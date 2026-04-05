@@ -1,32 +1,33 @@
 {{-- Category Filter Component --}}
 @props(['categories', 'selectedCategory'])
 
-<div class="sticky top-0 z-20 glass shadow-sm border-b border-stone-100/50">
-    <div class="max-w-7xl mx-auto px-4 py-3">
-        <div class="flex items-center gap-2 overflow-x-auto scrollbar-hide pb-0.5">
-            {{-- "Todos" button --}}
-            <button 
+<div class="sticky top-0 z-20 bg-white/95 backdrop-blur-md border-b border-stone-100 shadow-sm">
+    <div class="max-w-7xl mx-auto px-2 sm:px-4">
+        <div class="flex items-stretch overflow-x-auto scrollbar-hide">
+
+            {{-- Todos --}}
+            <button
                 wire:click="selectCategory(null)"
-                class="flex-shrink-0 px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 transform
-                    {{ $selectedCategory === null 
-                        ? 'bg-neutral-900 text-brand-400 shadow-lg shadow-neutral-900/25 scale-105' 
-                        : 'bg-stone-100 text-stone-600 hover:bg-stone-200 hover:text-stone-800 hover:scale-[1.02]' }}"
+                class="flex-shrink-0 px-4 sm:px-5 py-3.5 text-sm font-semibold whitespace-nowrap border-b-2 transition-colors duration-150
+                    {{ $selectedCategory === null
+                        ? 'border-brand-700 text-brand-700'
+                        : 'border-transparent text-stone-400 hover:text-stone-700 hover:border-stone-200' }}"
             >
                 Todos
             </button>
 
-            {{-- Category buttons --}}
             @foreach($categories as $category)
-                <button 
+                <button
                     wire:click="selectCategory({{ $category->id }})"
-                    class="flex-shrink-0 px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 transform
-                        {{ $selectedCategory == $category->id 
-                            ? 'bg-neutral-900 text-brand-400 shadow-lg shadow-neutral-900/25 scale-105' 
-                            : 'bg-stone-100 text-stone-600 hover:bg-stone-200 hover:text-stone-800 hover:scale-[1.02]' }}"
+                    class="flex-shrink-0 px-4 sm:px-5 py-3.5 text-sm font-semibold whitespace-nowrap border-b-2 transition-colors duration-150
+                        {{ $selectedCategory == $category->id
+                            ? 'border-brand-700 text-brand-700'
+                            : 'border-transparent text-stone-400 hover:text-stone-700 hover:border-stone-200' }}"
                 >
                     {{ $category->name }}
                 </button>
             @endforeach
+
         </div>
     </div>
 </div>
