@@ -18,6 +18,7 @@ class ShowProduct extends Component
     public function render()
     {
         $relatedProducts = Product::promoted()
+            ->available()
             ->where('category_id', $this->product->category_id)
             ->where('id', '!=', $this->product->id)
             ->limit(4)

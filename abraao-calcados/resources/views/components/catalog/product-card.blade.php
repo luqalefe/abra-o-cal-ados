@@ -8,7 +8,7 @@
         @if($product->images && count($product->images) > 0)
             <img
                 src="{{ Storage::url($product->images[0]) }}"
-                alt="{{ $product->name }}"
+                alt="{{ $product->display_name }}"
                 class="w-full h-full object-cover"
                 @if($isFirst) fetchpriority="high" @else loading="lazy" @endif
                 width="400"
@@ -33,11 +33,11 @@
         {{-- Categoria + Nome --}}
         <div>
             <span class="text-[10px] font-semibold text-brand-700 uppercase tracking-wider">
-                {{ $product->category->name }}
+                {{ $product->category?->name ?? '—' }}
             </span>
             <a href="{{ route('produto.show', $product) }}" class="block mt-0.5">
                 <h3 class="text-sm font-semibold text-gray-800 line-clamp-2 leading-snug hover:text-brand-700 transition-colors">
-                    {{ $product->name }}
+                    {{ $product->display_name }}
                 </h3>
             </a>
         </div>

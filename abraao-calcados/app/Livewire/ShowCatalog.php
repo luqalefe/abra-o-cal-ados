@@ -30,6 +30,8 @@ class ShowCatalog extends Component
         $categoryKey = $this->selectedCategory ?? 'all';
 
         $products = Product::promoted()
+            ->available()
+            ->whereNotNull('category_id')
             ->with('category')
             ->when($this->selectedCategory, fn ($query) => $query->where('category_id', $this->selectedCategory))
             ->latest()

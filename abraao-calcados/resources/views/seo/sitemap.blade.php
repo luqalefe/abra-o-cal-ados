@@ -17,11 +17,11 @@
         <lastmod>{{ $product->updated_at->toW3cString() }}</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
-        @if($product->image_path)
+        @if($product->images && count($product->images) > 0)
         <image:image>
-            <image:loc>{{ url(Storage::url($product->image_path)) }}</image:loc>
-            <image:title>{{ $product->name }} - Abraão Calçados Rio Branco</image:title>
-            <image:caption>{{ $product->name }} - {{ $product->category->name }} disponível na Abraão Calçados em Rio Branco, Acre</image:caption>
+            <image:loc>{{ url(Storage::url($product->images[0])) }}</image:loc>
+            <image:title>{{ $product->display_name }} - Abraão Calçados Rio Branco</image:title>
+            <image:caption>{{ $product->display_name }}{{ $product->category ? ' - ' . $product->category->name : '' }} disponível na Abraão Calçados em Rio Branco, Acre</image:caption>
         </image:image>
         @endif
     </url>

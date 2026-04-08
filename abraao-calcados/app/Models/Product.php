@@ -15,16 +15,23 @@ class Product extends Model
     use HasFactory;
 
     protected $fillable = [
-        'category_id',
+        'category_id', // nullable — preenchido manualmente pelo admin após importação
+        'erp_code',
         'name',
         'description',
         'price',
+        'price_wholesale',
+        'stock',
+        'is_available',
         'images',
         'is_promoted',
     ];
 
     protected $casts = [
         'price' => 'decimal:2',
+        'price_wholesale' => 'decimal:2',
+        'stock' => 'integer',
+        'is_available' => 'boolean',
         'is_promoted' => 'boolean',
         'images' => 'array',
     ];
@@ -37,6 +44,18 @@ class Product extends Model
     public function scopePromoted(Builder $query): void
     {
         $query->where('is_promoted', true);
+    }
+
+    public function scopeAvailable(Builder $query): void
+    {
+        $query->where('is_available', true);
+    }
+
+    protected function displayName(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => preg_replace('/^\d+\s+/', '', $this->name),
+        );
     }
 
     protected function formattedPrice(): Attribute

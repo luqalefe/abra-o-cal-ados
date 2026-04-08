@@ -29,7 +29,7 @@
                         <template x-if="images.length > 0">
                             <img
                                 :src="images[activeImage]"
-                                alt="{{ $product->name }}"
+                                alt="{{ $product->display_name }}"
                                 class="w-full h-full object-cover"
                                 width="600"
                                 height="600"
@@ -72,10 +72,10 @@
                 {{-- Categoria + Nome --}}
                 <div>
                     <span class="text-xs font-semibold text-brand-700 uppercase tracking-wider">
-                        {{ $product->category->name }}
+                        {{ $product->category?->name ?? 'Sem categoria' }}
                     </span>
                     <h1 class="mt-1 text-2xl md:text-3xl font-black text-gray-900 leading-tight">
-                        {{ $product->name }}
+                        {{ $product->display_name }}
                     </h1>
                 </div>
 
@@ -138,7 +138,7 @@
         @if($relatedProducts->count() > 0)
             <section class="mt-12 md:mt-16">
                 <h2 class="text-base font-bold text-gray-800 mb-4">
-                    Mais em {{ $product->category->name }}
+                    Mais em {{ $product->category?->name ?? 'Sem categoria' }}
                 </h2>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
                     @foreach($relatedProducts as $related)

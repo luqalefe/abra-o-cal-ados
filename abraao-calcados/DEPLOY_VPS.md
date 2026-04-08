@@ -270,15 +270,24 @@ npm run build
 ```bash
 cd /var/www/abraao-calcados
 
-# Rodar migrations (inclui índices de performance em products)
+# Rodar migrations
 php artisan migrate --force
 
 # Criar link do storage (para imagens de produtos)
 php artisan storage:link
 
+# Criar diretórios de upload necessários
+mkdir -p storage/app/estoque-imports
+mkdir -p storage/app/livewire-tmp
+
 # Popular categorias iniciais
 php artisan db:seed --class=CategorySeeder
 ```
+
+> **📦 Importar produtos do ERP:**  
+> Não rode o `EstoqueSeeder` manualmente na VPS.  
+> Acesse o painel em `/admin/importar-estoque` e faça o upload do CSV do ERP.  
+> Os produtos serão importados sem categoria — o admin deve editar cada um para adicionar foto e categoria antes de marcar como promovido.
 
 ---
 
